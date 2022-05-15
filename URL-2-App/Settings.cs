@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace URL_App_Launcher_Console
+namespace URL2App
 {
     internal class Settings
     {

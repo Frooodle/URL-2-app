@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace URL_App_Launcher_Console
+namespace URL2App
 {
 	public class KeysToPath
 	{
-		public string key { get; set; }
+		public string? Key { get; set; }
 
-		public string path { get; set; }
+		public string? Path { get; set; }
 	}
 }

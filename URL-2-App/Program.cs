@@ -1,5 +1,5 @@
 ﻿using System.Diagnostics;
-using URL_App_Launcher_Console;
+using URL2App;
 using System.Runtime.InteropServices;
 
 [DllImport("kernel32.dll")]
@@ -44,7 +44,7 @@ try
             string.Equals(uri.Scheme, UriScheme, StringComparison.OrdinalIgnoreCase))
         {
             ProcessURI processURI = new ProcessURI();
-            String pathToFileToOpen = processURI.processURIToFile(args[0]);
+            String pathToFileToOpen = processURI.processURIToFile(UriScheme,args[0]);
             String arguements = "";
             if (pathToFileToOpen == null || pathToFileToOpen.Length == 0)
             {
@@ -80,23 +80,18 @@ try
     else
     {
         //mannually openned so setup app configs and registry entries
-        
-        Console.WriteLine("This app requires a JSON file appsettings.json to be along side it if you wish for debug or file key functionality");
-        Console.WriteLine("Usage: Use link in format UAL:/// to call this app, we accept file paths with and without args (.exe path and file must be in quotes if args are used)");
-        Console.WriteLine("Triple /// must be used at all times, example reuqest is ual://file:///C:\\Windows\\System32\\notepad.exe");
-        Console.WriteLine("ual://file:///PATH for direct file calls or if the file is setup in appsettings.json then ual://key:///KEY");
+        ConsoleHandling.printInfo();
 
         Console.WriteLine("\n\nApp mannually started");
         Console.WriteLine("Is the app placed in the location you wish to perminatly run it from? [yes/no]");
-        string option = Console.ReadLine();
-        if (option != null && option == "yes")
+        bool accepted = ConsoleHandling.consoleInputYN();
+        if (accepted)
         {
             RegisterURLHandler.RegisterUriScheme(UriScheme, FriendlyName);
             Console.WriteLine("Registry setup, app now ready to be called from URL");
         }
         else {
             Console.WriteLine("Please move exe and optional settings file to desired location before running");
-            Environment.Exit(0);
         }
         
     }
@@ -104,23 +99,8 @@ try
 catch (Exception e)
 {
     Console.WriteLine(e.ToString());
-    Console.WriteLine("Please any key to close.");
-    Console.ReadKey();
-    Environment.Exit(0);
+    ConsoleHandling.waitAndClose();
 }
-try
-{
-    if (debugMode)
-    {
-        Console.WriteLine("Please any key to close.");
-        Console.ReadKey();
-        Environment.Exit(0);
-    }
-}
-catch (Exception e)
-{
-    Console.WriteLine(e.ToString());
-    Console.WriteLine("Please any key to close.");
-    Console.ReadKey();
-    Environment.Exit(0);
-}
+
+ConsoleHandling.waitAndClose(debugMode);
+  
