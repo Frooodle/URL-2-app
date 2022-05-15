@@ -23,14 +23,15 @@ namespace URL2App
             String decodedURL = HttpUtility.UrlDecode(uriArg);
             Console.WriteLine("Decoded URL is " + decodedURL);
             String url;
+            Settings settings = new Settings();
             if (decodedURL.Contains(UriScheme + ":///file:///"))
             {
-                
+                if (!settings.isDirectFileAccessAllowed())
+                    throw new Exception("Direct file access is not allowed");
                 url = decodedURL.Split(new[] { UriScheme + ":///file:///" }, StringSplitOptions.None)[1];
             } else if (decodedURL.Contains(UriScheme + ":///key:///"))
             {
                 String key = decodedURL.Split(new[] { UriScheme + ":///key:///" }, StringSplitOptions.None)[1];
-                Settings settings = new Settings();
                 url = settings.grabKeyValueFromSettings(key);
             } else
             {

@@ -1,5 +1,6 @@
 {
   "isDebug": false,
+  "isDirectFileAccessAllowed": true,
   "KeysToPath": [
     {
       "key": "notepad",

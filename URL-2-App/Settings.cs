@@ -30,6 +30,12 @@ namespace URL2App
             return config.GetValue<bool>("isDebug");
         }
 
+        public bool isDirectFileAccessAllowed()
+        {
+            if (config == null) return true;
+            return config.GetValue<bool>("isDirectFileAccessAllowed");
+        }
+
         public String grabKeyValueFromSettings(String keyToGet)
         {
             if (config == null) throw new ArgumentNullException("config null, Mostlikely due to missing or invalid appsettings.json");
