@@ -14,7 +14,7 @@ Use link in format UAL:/// to call this app, It accepts file paths with and with
 Triple /// must be used at all times, example reuqest is ual://file:///C:\\Windows\\System32\\notepad.exe note for directory mapping \\ or / are both possible as long as ual and file are both triple ///
 ual://file:///PATH for direct file calls or if the file is setup in appsettings.json then ual://key:///KEY
 
-##Examples
+## Examples
 Open file .exe with direct path reference
 U2A:///file:///C:\\Windows\\System32\\notepad.exe
 
