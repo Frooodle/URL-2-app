@@ -34,3 +34,7 @@ U2A:///key:///notepad
 Open file based on path and run with arguements (Note path to .exe is in double quotes)
 
 U2A:///file:///"C:\\Windows\\System32\\notepad.exe" /A c:\Windows\System32\Drivers\etc\hosts
+
+
+## App isn't working
+Please create a appsettings.json along side your .exe by copying and renaming [Default appsettings.json example](https://github.com/Frooodle/URL-2-app/blob/main/Defaultappsettings.json) then change debug to true. This should keep window open after call and display and issue you may be getting 
