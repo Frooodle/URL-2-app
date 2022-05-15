@@ -10,9 +10,11 @@ Place the app and the optional settings file in whichever location you wish this
 
 Run the URL-2-App.exe and type 'yes' to confirm location.
 
-This will setup a registry edit to map ual:// calls to this exe at the location you have ran it.
+This will setup a registry edit to map u2a:// calls to this exe at the location you have ran it.
 
 ## URL Usage
+Once app has been ran once.
+
 Use link in format U2A:/// to call this app, It accepts file paths with and without args. File path and file must be in quotes if args are used)
 
 Triple /// must be used at all times, example reuqest is u2a://file:///C:\\Windows\\System32\\notepad.exe note for directory mapping \\ or / are both possible as long as ual and file are both triple ///
