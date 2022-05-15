@@ -35,12 +35,12 @@ U2A:///key:///notepad
 ------
 Open file based on path and run with arguements (Note path to .exe is in double quotes)
 
-U2A:///file:///"C:\\Windows\\System32\\notepad.exe" /A c:\Windows\System32\Drivers\etc\hosts
+U2A:///file:///"C:\\Windows\\System32\\notepad.exe" /A C:\Windows\System32\Drivers\etc\hosts
 
 ## Security Concerns
-This app allows you to execute any exe file with any arguements when you open a URL configured for it. If you are concerned this could be used by someone else to explote your PC please create/edit you appsettings.json and set isDirectFileAccessAllowed to false.
+This app allows you to execute any exe file with any arguments when you open a URL configured for it. If you are concerned this could be used by someone else to exploit your PC please create/edit you appsettings.json and set isDirectFileAccessAllowed to false.
 
-By doing this only apps predefined in appsettings.json can be openned and used
+By doing this only apps predefined in appsettings.json can be opened and used.
 
 ## App isn't working
-Please create a appsettings.json along side your .exe by copying and renaming [Default appsettings.json example](https://github.com/Frooodle/URL-2-app/blob/main/Defaultappsettings.json) then change debug to true. This should keep window open after call and display and issue you may be getting 
+Please create an appsettings.json alongside your .exe by copying and renaming [Default appsettings.json example](https://github.com/Frooodle/URL-2-app/blob/main/Defaultappsettings.json) then change debug to true. This should keep window open after call and display and issue you may be getting.
