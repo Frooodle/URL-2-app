@@ -42,10 +42,11 @@ namespace URL2App
             var valuesSection = config.GetSection("KeysToPath");
             foreach (IConfigurationSection section in valuesSection.GetChildren())
             {
-                Console.WriteLine("key=" + section.GetValue<string>("key") + ", " + "path=" + section.GetValue<string>("path"));
+                Console.WriteLine("checking " + keyToGet + " against key=" + section.GetValue<string>("key") + ", " + " with path=" + section.GetValue<string>("path"));
                 var key = section.GetValue<string>("key");
                 if (keyToGet.Equals(key))
                 {
+                    Console.WriteLine("Found matching key and path");
                     return section.GetValue<string>("path");
                 }
             }

@@ -60,7 +60,7 @@ try
                 }
                 if(!File.Exists(pathToFileToOpen))
                 {
-                    throw new ArgumentException("Path " + pathToFileToOpen + " does not exist");
+                    throw new ArgumentException("Path " + pathToFileToOpen + " does not exist if you are passing arguements the exe path must be in double quotes");
                 }
             }
 
