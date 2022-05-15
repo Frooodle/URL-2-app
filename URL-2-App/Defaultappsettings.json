@@ -1,0 +1,14 @@
+{
+  "isDebug": false,
+  "KeysToPath": [
+    {
+      "key": "notepad",
+      "path": "C:\\Windows\\System32\\notepad.exe"
+    },
+    {
+      "key": "leagueOfLegends",
+      "path": "C:\\Riot Games\\Riot Client\\RiotClientServices.exe --launch-product=league_of_legends --launch-patchline=live"
+    }
+  ]
+
+}
