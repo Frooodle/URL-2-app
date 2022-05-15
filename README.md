@@ -14,12 +14,18 @@ Use link in format UAL:/// to call this app, It accepts file paths with and with
 Triple /// must be used at all times, example reuqest is ual://file:///C:\\Windows\\System32\\notepad.exe note for directory mapping \\ or / are both possible as long as ual and file are both triple ///
 ual://file:///PATH for direct file calls or if the file is setup in appsettings.json then ual://key:///KEY
 
+
 ## Examples
 Open file .exe with direct path reference
+
 U2A:///file:///C:\\Windows\\System32\\notepad.exe
 
+------
 Open file based on key defined in [appsettings.json](https://github.com/Frooodle/URL-App-Launcher/blob/main/Defaultappsettings.json)
+
 U2A:///key:///notepad
 
+------
 Open file based on path and run with arguements (Note path to .exe is in double quotes)
+
 U2A:///file:///"C:\\Windows\\System32\\notepad.exe" /A c:\Windows\System32\Drivers\etc\hosts
