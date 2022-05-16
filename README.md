@@ -5,6 +5,10 @@ This app requires a JSON file appsettings.json to be along side it if you wish f
 
 [appsettings.json example](https://github.com/Frooodle/URL-2-app/blob/main/appsettings.json)
 
+## How to download
+
+.exe app can be grabbed from [https://github.com/Frooodle/URL-2-app/releases/](https://github.com/Frooodle/URL-2-app/releases/)
+
 ## Examples of usecases
 
 Open file .exe with direct path reference
