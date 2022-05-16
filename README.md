@@ -11,6 +11,8 @@ This app requires a JSON file appsettings.json to be along side it if you wish f
 
 ## Examples of usecases
 
+All the below can be called by chrome bookmarks/shortcuts/links etc to open the referenced file/app 
+
 Open file .exe with direct path reference
 
 [u2a:///file:/C:\\Windows\\System32\\notepad.exe](u2a:///file://C:/Windows/System32/notepad.exe)
