@@ -70,7 +70,7 @@ try
             {
                 if (pathToFileToOpen.Contains('"'))
                 {
-                    String[] splitResults = pathToFileToOpen.Split('"');
+                    String[] splitResults = pathToFileToOpen.Split(new[] { '"' }, 3);
                     pathToFileToOpen = splitResults[1];
                     arguements = splitResults[2].Trim();
                 }
@@ -93,7 +93,7 @@ try
             {
                 String text = "Do you wish to run the application " + pathToFileToOpen;
                 if (arguements != null && !arguements.Equals(""))
-                    text += "using arguements "  + arguements;
+                    text += "\nUsing arguements: \n"  + arguements;
                 int response = MessageBox((IntPtr)0, text, "Approve execution?", 4);
                 if(response == 6) //6 = yes 7 = no
                     Process.Start(startInfo);
