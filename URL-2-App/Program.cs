@@ -8,6 +8,10 @@ static extern IntPtr GetConsoleWindow();
 [DllImport("user32.dll")]
 static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
 
+[DllImport("user32.dll")]
+static extern int MessageBox(IntPtr hInstance, string lpText, string lpCaption, int type);
+
+
 const int SW_HIDE = 0;
 const int SW_SHOW = 5;
 
@@ -20,12 +24,18 @@ const string FriendlyName = "UrlToApp";
 bool debugMode = args.Length == 0;
 try
 {
-    for (int i = 0; i < args.Length; i++)
+
+    Process process = Process.GetCurrentProcess();
+    var dupl = (Process.GetProcessesByName(process.ProcessName));
+    if (dupl.Length > 1)
     {
-        Console.WriteLine($"Arg[{i}] = [{args[i]}]");
+        foreach (var p in dupl)
+        {
+            if (p.Id != process.Id)
+                p.Kill();
+        }
     }
 
-    Console.WriteLine("Starting " + FriendlyName);
     Settings settings = new Settings();
     var handle = GetConsoleWindow();
     debugMode = settings.isDebug() || args.Length == 0;
@@ -36,6 +46,14 @@ try
     {
         ShowWindow(handle, SW_HIDE);
     }
+
+    for (int i = 0; i < args.Length; i++)
+    {
+        Console.WriteLine($"Arg[{i}] = [{args[i]}]");
+    }
+
+    Console.WriteLine("Starting " + FriendlyName);
+
     //If not started mannually
     if (args.Length > 0)
     {
@@ -71,12 +89,22 @@ try
             }
             Console.WriteLine("Starting app \"" + pathToFileToOpen + "\"");
             Console.WriteLine("With arguements \"" + arguements + "\"");
-            Process.Start(startInfo);
 
+            if(settings.isConfirmationBeforeExecuting())
+            {
+                String text = "Do you wish to run the application " + pathToFileToOpen;
+                if (arguements != null && !arguements.Equals(""))
+                    text += "using arguements "  + arguements;
+                int response = MessageBox((IntPtr)0, text, "Approve execution?", 4);
+                if(response == 6) //6 = yes 7 = no
+                    Process.Start(startInfo);
+            } else { 
+                Process.Start(startInfo);
+            }
 
         } else
         {
-            throw new ArgumentException("Invalid uri " + uri);
+            throw new ArgumentException("Invalid uri, Could not be parsed " + uri);
         }
     }
     else
@@ -105,4 +133,5 @@ catch (Exception e)
 }
 
 ConsoleHandling.waitAndClose(debugMode);
+
   

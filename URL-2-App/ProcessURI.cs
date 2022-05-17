@@ -26,7 +26,7 @@ namespace URL2App
             String file;
             Settings settings = new Settings();
 
-            Regex reg = new Regex("(" + UriScheme + ":[/]{2,3}(file|key):[/]{0,3}).+", RegexOptions.IgnoreCase);
+            Regex reg = new Regex("(" + UriScheme + ":[/]{0,3}(file|key):[/]{0,3}).+", RegexOptions.IgnoreCase);
             Match m = reg.Match(decodedURL);
             if (m != null && m.Success && m.Groups[1] != null && m.Groups[2] != null & m.Groups[1].Value != null & m.Groups[2].Value != null)
             {     

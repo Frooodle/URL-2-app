@@ -27,14 +27,21 @@ namespace URL2App
         public bool isDebug()
         {
             if (config == null) return false;
-            return config.GetValue<bool>("isDebug");
+            return config.GetValue<bool>("Debug");
         }
 
         public bool isDirectFileAccessAllowed()
         {
             if (config == null) return true;
-            return config.GetValue<bool>("isDirectFileAccessAllowed");
+            return config.GetValue<bool>("Security:DirectFileAccessAllowed");
         }
+
+        public bool isConfirmationBeforeExecuting()
+        {
+            if (config == null) return false;
+            return config.GetValue<bool>("Security:ConfirmationBeforeExecuting");
+        }
+
 
         public String grabKeyValueFromSettings(String keyToGet)
         {
