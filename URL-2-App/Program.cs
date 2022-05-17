@@ -68,7 +68,7 @@ try
             }
             else
             {
-                if (pathToFileToOpen.Contains('"'))
+                if (pathToFileToOpen[0] == '"')
                 {
                     String[] splitResults = pathToFileToOpen.Split(new[] { '"' }, 3);
                     pathToFileToOpen = splitResults[1];
@@ -91,7 +91,7 @@ try
 
             if(settings.isConfirmationBeforeExecuting())
             {
-                String text = "Do you wish to run the application " + pathToFileToOpen;
+                String text = "Do you wish to run " + pathToFileToOpen;
                 if (arguements != null && !arguements.Equals(""))
                     text += "\nUsing arguements: \n"  + arguements;
                 int response = MessageBox((IntPtr)0, text, "Approve execution?", 4);
