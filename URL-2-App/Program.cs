@@ -24,7 +24,6 @@ const string FriendlyName = "UrlToApp";
 bool debugMode = args.Length == 0;
 try
 {
-
     Process process = Process.GetCurrentProcess();
     var dupl = (Process.GetProcessesByName(process.ProcessName));
     if (dupl.Length > 1)
@@ -77,7 +76,7 @@ try
                 }
                 if(!File.Exists(pathToFileToOpen))
                 {
-                    throw new ArgumentException("Path " + pathToFileToOpen + " does not exist if you are passing arguements the exe path must be in double quotes");
+                    throw new ArgumentException("File " + pathToFileToOpen + " does not exist if you are passing arguements the exe path must be in double quotes");
                 }
             }
 
