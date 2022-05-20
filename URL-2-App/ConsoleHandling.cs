@@ -11,9 +11,8 @@ namespace URL2App
         public static void printInfo()
         {
             Console.WriteLine("This app requires a JSON file appsettings.json to be along side it if you wish for debug or file key functionality");
-            Console.WriteLine("Usage: Use link in format UAL:/// to call this app, we accept file paths with and without args (.exe path and file must be in quotes if args are used)");
-            Console.WriteLine("Triple /// must be used at all times, example reuqest is ual://file:///C:\\Windows\\System32\\notepad.exe");
-            Console.WriteLine("ual://file:///PATH for direct file calls or if the file is setup in appsettings.json then ual://key:///KEY");
+            Console.WriteLine("Usage: Use link in format UAL: to call this app, we accept file paths with and without args (.exe path and file must be in quotes if args are used)");
+            Console.WriteLine("u2a:file:PATH for direct file calls or if the file is setup in appsettings.json then u2a:key:KEY");
         }
         public static void waitAndClose(bool debugMode)
         {
